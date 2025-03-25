@@ -61,5 +61,8 @@ async function fetchProductsAsync() {
         function handleError(error) {
             console.error("An error has occurred:" + error.message)
     }
-    
 
+//Task 6
+    //Calling fetch functions
+        fetchProductsThen()
+        fetchProductsAsync()
