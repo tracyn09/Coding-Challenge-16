@@ -56,9 +56,10 @@ async function fetchProductsAsync() {
         container.appendChild(productDiv)
     }
     }
-    //Handle error
+//Task 5
+    //Handle error (Adding "An error has occurred:")
         function handleError(error) {
-            console.error(`Error`)
+            console.error("An error has occurred:" + error.message)
     }
     
 
