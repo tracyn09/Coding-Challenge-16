@@ -31,10 +31,34 @@ async function fetchProductsAsync() {
 }
     //Helper function to render products on page
     function displayProducts(products) {
-        products.forEach(product => {console.log(product.fields.name)})
-    }
+//Task 4 (Selecting parent container + loop through first 5 products)
+        const container = document.querySelector(`#product-container`)
+        for (let i=0; i < Math.min(5, products.length); i++){
+            const product = products[i]
 
-    //Handle error
-    function handleError(error) {
-        console.error(`Error`)
+        const productDiv = document.createElement('div')
+
+    //Creating elements for product name, price, and image
+        const productName = document.createElement('h3')
+        productName.textContent = product.fields.name
+
+        const productPrice = document.createElement('p')
+        productPrice.textContent = `$${product.fields.price}`
+
+        const productImage = document.createElement('img')
+        productImage.src = product.fields.image[0].url
+        productImage.alt = product.fields.name
+    
+    //Appending elements and productDiv to container
+        productDiv.appendChild(productName)
+        productDiv.appendChild(productPrice)
+        productDiv.appendChild(productImage)
+        container.appendChild(productDiv)
     }
+    }
+    //Handle error
+        function handleError(error) {
+            console.error(`Error`)
+    }
+    
+
